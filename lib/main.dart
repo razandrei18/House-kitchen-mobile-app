@@ -1,41 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:house_kitchen_app/app.dart';
+import 'package:house_kitchen_app/infrastructure/injection.dart';
+import 'package:easy_localization/easy_localization.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  await _setup();
+
+  runApp(HouseKitchen());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+Future _setup() async {
+  WidgetsFlutterBinding.ensureInitialized();
 
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'House Kitchen',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(title: 'House Kitchen'),
-    );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: const <Widget>[],
-        ),
-      ),
-    );
-  }
+  await configureDependencies();
+  await EasyLocalization.ensureInitialized();
 }
