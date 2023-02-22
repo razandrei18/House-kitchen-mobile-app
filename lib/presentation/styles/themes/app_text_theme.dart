@@ -7,8 +7,11 @@ part 'app_text_theme.freezed.dart';
 class AppTextTheme with _$AppTextTheme {
   const factory AppTextTheme(
     TextStyle h1,
-    TextStyle h1White,
     TextStyle h2,
+    TextStyle h2bold,
+    TextStyle h2White,
     TextStyle h3,
+    TextStyle h4,
+    TextStyle h5white,
   ) = _AppTextTheme;
 }

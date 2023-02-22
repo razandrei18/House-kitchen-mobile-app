@@ -40,6 +40,13 @@ dependencies:
   shared_preferences: ^2.0.13
   flutter_secure_storage: ^5.1.0
   auto_route: ^4.0.1
+  flutter_bloc: ^8.0.1
+  dartz: ^0.10.1
+  json_serializable: ^6.1.5
+  logging: ^1.0.2
+  url_launcher: ^6.0.20
+  chopper: ^4.0.5
+
   
 
 

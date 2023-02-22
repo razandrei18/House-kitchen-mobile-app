@@ -11,21 +11,25 @@ enum ThemeType {
     switch (this) {
       case ThemeType.houseKitchen:
         return AppTheme(
-            textTheme: AppTextTheme(
-              TextStyles.h1,
-              TextStyles.h1white,
-              TextStyles.h2,
-              TextStyles.h3,
-            ),
-            colorTheme: const AppColorTheme(
-              AppColors.backgroundGrey,
-              AppColors.black,
-              AppColors.white,
-              AppColors.darkGrey,
-              AppColors.grey,
-              AppColors.transparent,
-              AppColors.categoryTitleBlack,
-            ));
+          textTheme: AppTextTheme(
+            TextStyles.h1,
+            TextStyles.h2,
+            TextStyles.h2bold,
+            TextStyles.h2white,
+            TextStyles.h3,
+            TextStyles.h4,
+            TextStyles.h5white,
+          ),
+          colorTheme: const AppColorTheme(
+            AppColors.backgroundGrey,
+            AppColors.black,
+            AppColors.white,
+            AppColors.darkGrey,
+            AppColors.grey,
+            AppColors.transparent,
+            AppColors.categoryTitleBlack,
+          ),
+        );
     }
   }
 }
