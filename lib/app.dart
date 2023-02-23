@@ -53,14 +53,14 @@ class AppWidget extends StatelessWidget {
       theme: theme,
       child: MaterialApp.router(
         routerDelegate: getIt<AppRouter>().delegate(initialRoutes: [
-          const HomeRoute(),
+          HomeRoute(),
         ]),
         routeInformationParser: getIt<AppRouter>().defaultRouteParser(),
         theme: ThemeData(
           appBarTheme: AppBarTheme(
             backgroundColor: theme.colorTheme.backgroundGrey,
             toolbarTextStyle: theme.textTheme.h1,
-            titleTextStyle: theme.textTheme.h1White,
+            titleTextStyle: theme.textTheme.h2White,
           ),
         ),
         locale: context.locale,
