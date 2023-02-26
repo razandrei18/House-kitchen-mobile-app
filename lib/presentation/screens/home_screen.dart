@@ -27,7 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              UserProfileWidget(),
+              const UserProfileWidget(),
               const SizedBox(height: 16),
               Container(
                 margin: const EdgeInsets.only(left: 20),

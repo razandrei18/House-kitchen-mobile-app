@@ -1,5 +1,5 @@
 class Constants {
   Constants._();
 
-  static const selectedCategoryNameKey = "Autentificare";
+  static const selectedCategoryNameKey = "SELECTED_CATEGORY_KEY";
 }

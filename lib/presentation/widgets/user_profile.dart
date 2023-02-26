@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:geocoding/geocoding.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:house_kitchen_app/presentation/styles/themes/app_theme.dart';
 
 class UserProfileWidget extends StatefulWidget {
@@ -9,6 +11,42 @@ class UserProfileWidget extends StatefulWidget {
 }
 
 class _UserProfileWidgetState extends State<UserProfileWidget> {
+  String _location = "";
+
+  @override
+  void initState() {
+    super.initState();
+    _getCurrentLocation();
+  }
+
+  Future<void> _getCurrentLocation() async {
+    try {
+      LocationPermission permission = await Geolocator.checkPermission();
+      if (permission == LocationPermission.denied ||
+          permission == LocationPermission.deniedForever) {
+        permission = await Geolocator.requestPermission();
+        if (permission != LocationPermission.whileInUse &&
+            permission != LocationPermission.always) {
+          return;
+        }
+      }
+
+      final position = await Geolocator.getCurrentPosition(
+          desiredAccuracy: LocationAccuracy.high);
+
+      final placemarks = await placemarkFromCoordinates(
+          position.latitude, position.longitude,
+          localeIdentifier: "en");
+      final placemark = placemarks.first;
+      setState(() {
+        _location =
+            "${placemark.street}, ${placemark.locality}, ${placemark.country}";
+      });
+    } catch (e) {
+      print(e);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final theme = AppTheme.of(context);
@@ -48,7 +86,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                 .copyWith(fontSize: 12, fontWeight: FontWeight.w500),
           ),
           Text(
-            "Cluj Napoca, Iulius Mall",
+            _location.isNotEmpty ? _location : "Loading location...",
             style: theme.textTheme.h5white,
           ),
         ],

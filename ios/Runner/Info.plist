@@ -28,6 +28,10 @@
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Your location is required to show nearby restaurants.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Your location is required to show nearby restaurants.</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
