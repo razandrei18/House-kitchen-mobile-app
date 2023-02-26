@@ -3,6 +3,8 @@ import 'package:house_kitchen_app/infrastructure/api/converters/json_converter.d
 import 'package:house_kitchen_app/infrastructure/categories/categories_dto.dart';
 import 'package:house_kitchen_app/infrastructure/categories/categories_response_dto.dart';
 import 'package:house_kitchen_app/infrastructure/injection.dart';
+import 'package:house_kitchen_app/infrastructure/meals/meals_dto.dart';
+import 'package:house_kitchen_app/infrastructure/meals/meals_response_dto.dart';
 import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -23,6 +25,8 @@ abstract class HouseKitchenAPI extends ChopperService {
       converter: const JsonSerializableConverter({
         CategoriesResponseDto: CategoriesResponseDto.fromJsonFactory,
         CategoriesDto: CategoriesDto.fromJsonFactory,
+        MealsResponseDto: MealsResponseDto.fromJsonFactory,
+        MealsDto: MealsDto.fromJsonFactory
       }),
       interceptors: [
         HttpLoggingInterceptor(),
@@ -38,4 +42,9 @@ abstract class HouseKitchenAPI extends ChopperService {
 
   @Get(path: '/categories.php')
   Future<Response<CategoriesResponseDto>> getCategories();
+
+  @Get(path: '/filter.php/?c={categoryName}')
+  Future<Response<MealsResponseDto>> getMealsByCategoryName(
+    @Path('categoryName') String categoryName,
+  );
 }

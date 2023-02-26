@@ -26,4 +26,16 @@ class _$HouseKitchenAPI extends HouseKitchenAPI {
     );
     return client.send<CategoriesResponseDto, CategoriesResponseDto>($request);
   }
+
+  @override
+  Future<Response<MealsResponseDto>> getMealsByCategoryName(
+      String categoryName) {
+    final $url = '/filter.php/?c=${categoryName}';
+    final $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<MealsResponseDto, MealsResponseDto>($request);
+  }
 }
