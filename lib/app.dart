@@ -53,7 +53,7 @@ class AppWidget extends StatelessWidget {
       theme: theme,
       child: MaterialApp.router(
         routerDelegate: getIt<AppRouter>().delegate(initialRoutes: [
-          HomeRoute(),
+          const HomeRoute(),
         ]),
         routeInformationParser: getIt<AppRouter>().defaultRouteParser(),
         theme: ThemeData(

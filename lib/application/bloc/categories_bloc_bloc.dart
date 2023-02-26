@@ -32,7 +32,6 @@ class CategoriesBlocBloc
             emit(const CategoriesBlocState.emptyList());
           }
         }, (failure) {
-          print(failure.toString());
           emit(CategoriesBlocState.failure(failure));
         });
       });

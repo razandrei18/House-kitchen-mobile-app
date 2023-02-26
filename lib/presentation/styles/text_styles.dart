@@ -29,13 +29,13 @@ class TextStyles {
     fontWeight: FontWeight.w800,
   );
 
-  static final h3 = GoogleFonts.poppins(
+  static final h3 = GoogleFonts.manrope(
     color: AppColors.black,
     fontSize: 14,
     fontWeight: FontWeight.w700,
   );
 
-  static final h4 = GoogleFonts.poppins(
+  static final h4 = GoogleFonts.urbanist(
     color: AppColors.grey,
     fontSize: 12,
     fontWeight: FontWeight.w600,
