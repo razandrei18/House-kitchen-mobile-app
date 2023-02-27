@@ -29,15 +29,16 @@ class MealItem extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(10.0),
-            child: Image.network(
-              meal.strMealThumb,
-              fit: BoxFit.fill,
+          Expanded(
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(10.0),
+              child: Image.network(
+                meal.strMealThumb,
+                fit: BoxFit.fitWidth,
+              ),
             ),
           ),
           const SizedBox(height: 8),
-          const Spacer(),
           GestureDetector(
             onTap: () => Fluttertoast.showToast(
               msg: meal.strMeal,

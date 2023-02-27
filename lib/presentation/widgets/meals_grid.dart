@@ -65,7 +65,7 @@ class _MealsGridState extends State<MealsGrid> {
               categoryName: sharedPrefs.getString(
                     Constants.selectedCategoryNameKey,
                   ) ??
-                  LocaleKeys.errors_unknown_message.tr(),
+                  "Beef",
             );
           }),
         );
