@@ -1,0 +1,23 @@
+{
+    "app": {
+        "title": "House Kitchen",
+        "description": "House Kitchen Mobile app"
+    },
+    "userProfile": {
+        "title": "HOUSE KITCHEN",
+        "hello_message": "Hello, Alexander!",
+        "shop_location_label": "Shop Location",
+        "loading_location_message": "Loading location..."
+    },
+    "categories": {
+        "title": "All Categories",
+        "no_categories_available": "No categories available"
+    },
+    "meals": {
+        "empty_list_message": "No meals available."
+    },
+    "errors": {
+        "something_went_wrong_message": "Something went wrong! Please try again.",
+        "unknown_message": "Unknown"
+    }
+}
