@@ -5,12 +5,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:house_kitchen_app/application/bloc/categories_bloc_bloc.dart';
 import 'package:house_kitchen_app/application/bloc/meals_bloc/bloc/meals_bloc.dart';
 import 'package:house_kitchen_app/domain/category.dart';
+import 'package:house_kitchen_app/generated/locale_keys.g.dart';
 import 'package:house_kitchen_app/infrastructure/injection.dart';
 import 'package:house_kitchen_app/presentation/styles/themes/app_theme.dart';
 import 'package:house_kitchen_app/presentation/widgets/category_item.dart';
 import 'package:house_kitchen_app/presentation/widgets/loading_widget.dart';
 import 'package:house_kitchen_app/shared/Constants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class CategoriesMenu extends StatefulWidget {
   const CategoriesMenu({
@@ -62,14 +64,14 @@ class _CategoriesMenuState extends State<CategoriesMenu> {
           emptyList: ((value) {
             return Center(
                 child: Text(
-              "No categories available.",
+              LocaleKeys.categories_no_categories_available.tr(),
               style: theme.textTheme.h2,
             ));
           }),
           failure: ((value) {
             return Center(
                 child: Text(
-              "Something went wrong! Please try again",
+              LocaleKeys.errors_something_went_wrong_message.tr(),
               style: theme.textTheme.h2,
             ));
           }),

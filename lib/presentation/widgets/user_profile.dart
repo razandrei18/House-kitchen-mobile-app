@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:house_kitchen_app/generated/locale_keys.g.dart';
 import 'package:house_kitchen_app/presentation/styles/themes/app_theme.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class UserProfileWidget extends StatefulWidget {
   const UserProfileWidget({super.key});
@@ -66,27 +68,34 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "HOUSE KITCHEN",
-            style: theme.textTheme.h2White,
+            LocaleKeys.userProfile_title.tr(),
+            style: theme.textTheme.h1,
           ),
           Row(
             children: [
               Text(
-                "Hello, Alexander!",
-                style: theme.textTheme.h2White
-                    .copyWith(fontSize: 20, fontWeight: FontWeight.w600),
+                LocaleKeys.userProfile_hello_message.tr(),
+                style: theme.textTheme.h2White.copyWith(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
               const Spacer(),
               Image.asset("assets/images/user_icon.png"),
             ],
           ),
           Text(
-            "Shop Location",
-            style: theme.textTheme.h5white
-                .copyWith(fontSize: 12, fontWeight: FontWeight.w500),
+            LocaleKeys.userProfile_shop_location_label.tr(),
+            style: theme.textTheme.h5white.copyWith(
+              fontSize: 12,
+              fontWeight: FontWeight.w500,
+              color: theme.colorTheme.white.withOpacity(0.7),
+            ),
           ),
           Text(
-            _location.isNotEmpty ? _location : "Loading location...",
+            _location.isNotEmpty
+                ? _location
+                : LocaleKeys.userProfile_loading_location_message.tr(),
             style: theme.textTheme.h5white,
           ),
         ],

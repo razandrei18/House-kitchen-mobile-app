@@ -1,5 +1,6 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:house_kitchen_app/generated/locale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 import 'package:house_kitchen_app/presentation/styles/themes/app_theme.dart';
 import 'package:house_kitchen_app/presentation/widgets/categories_menu.dart';
@@ -35,7 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "All Categories",
+                      LocaleKeys.categories_title.tr(),
                       style: theme.textTheme.h2bold,
                     ),
                     const SizedBox(height: 8),

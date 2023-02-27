@@ -4,12 +4,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:house_kitchen_app/application/bloc/meals_bloc/bloc/meals_bloc.dart';
 import 'package:house_kitchen_app/domain/meal/meal.dart';
+import 'package:house_kitchen_app/generated/locale_keys.g.dart';
 import 'package:house_kitchen_app/infrastructure/injection.dart';
 import 'package:house_kitchen_app/presentation/styles/themes/app_theme.dart';
 import 'package:house_kitchen_app/presentation/widgets/loading_widget.dart';
 import 'package:house_kitchen_app/presentation/widgets/meal_item.dart';
 import 'package:house_kitchen_app/shared/Constants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class MealsGrid extends StatefulWidget {
   const MealsGrid({
@@ -46,14 +48,14 @@ class _MealsGridState extends State<MealsGrid> {
           emptyList: ((value) {
             return Center(
                 child: Text(
-              "No meals available.",
+              LocaleKeys.meals_empty_list_message.tr(),
               style: theme.textTheme.h2,
             ));
           }),
           failure: ((value) {
             return Center(
                 child: Text(
-              "Something went wrong! Please try again.",
+              LocaleKeys.errors_something_went_wrong_message.tr(),
               style: theme.textTheme.h2,
             ));
           }),
@@ -63,7 +65,7 @@ class _MealsGridState extends State<MealsGrid> {
               categoryName: sharedPrefs.getString(
                     Constants.selectedCategoryNameKey,
                   ) ??
-                  "Beef",
+                  LocaleKeys.errors_unknown_message.tr(),
             );
           }),
         );
